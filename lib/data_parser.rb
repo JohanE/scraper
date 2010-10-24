@@ -29,6 +29,9 @@ module Assignment
     end
        
     def extract_time(date_str)
+        # clean the date first
+        date_str.gsub! /<br>/, ' '
+
       if ( date_str =~ /Idag/i )
         date = Assignment::ParseHelper.get_date_as_string(Time.now) 
         time = Assignment::ParseHelper.get_time_as_string(date_str)
@@ -49,20 +52,18 @@ module Assignment
 
     def get_parsed_nodes
       # loop through the node array and parse through it
+      parsed_data_array = []
       nodes.length.times do |i|
         node = nodes[i]
         the_date = node.at('th').inner_html.strip
-        # clean the date
-        the_date.gsub! /<br>/, ' '
         parsed_time = extract_time(the_date)
-        puts "The date = " + the_date #text
-        puts "Parsed time = " + parsed_time.to_s
+        puts "The date = " + the_date 
         item_data = node.at('td.thumbs_subject').text.strip
         subject, price = get_subject_and_price(item_data)      
-        puts "new price = " + price.to_s
-        puts "subject = " + subject 
-        puts ".....................--------------------------------"
+        item_array=[parsed_time, subject, price]
+        parsed_data_array << item_array
       end
+      parsed_data_array
     end
 
     private
