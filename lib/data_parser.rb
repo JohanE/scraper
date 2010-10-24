@@ -28,7 +28,7 @@ module Assignment
       return subject, price
     end
        
-    def process_date(date_str)
+    def extract_time(date_str)
       if ( date_str =~ /Idag/i )
         date = Assignment::ParseHelper.get_date_as_string(Time.now) 
         time = Assignment::ParseHelper.get_time_as_string(date_str)
@@ -54,7 +54,7 @@ module Assignment
         the_date = node.at('th').inner_html.strip
         # clean the date
         the_date.gsub! /<br>/, ' '
-        parsed_time = process_date(the_date)
+        parsed_time = extract_time(the_date)
         puts "The date = " + the_date #text
         puts "Parsed time = " + parsed_time.to_s
         item_data = node.at('td.thumbs_subject').text.strip
