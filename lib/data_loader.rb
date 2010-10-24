@@ -3,7 +3,7 @@ require 'nokogiri'
 
 module Assignment
   class DataLoader
-    def get_data
+    def self.get_data
       path = '/Users/johanedlund/projects/assignment/resources/imac.html'
       doc = Nokogiri::HTML(File.open(path)) do |config|
         config.noblanks
