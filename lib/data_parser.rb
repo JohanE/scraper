@@ -50,7 +50,7 @@ module Assignment
       parsed_time
     end
 
-    def get_parsed_nodes
+    def get_parsed_data_as_array
       # loop through the node array and parse through it
       parsed_data_array = []
       nodes.length.times do |i|
