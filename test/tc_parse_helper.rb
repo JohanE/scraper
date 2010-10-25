@@ -54,6 +54,33 @@ class TestParseHelper < Test::Unit::TestCase
     month="3"
     result=Assignment::ParseHelper.calculate_year(day, month)
     assert_instance_of(Fixnum, result)
+
+    # test bad indata
+    # todo: validate in method
+    assert_raises ArgumentError do
+      day="03"
+      month="34"
+      result=Assignment::ParseHelper.calculate_year(day, month)
+    end
+    
+    assert_raises NameError do
+      day=Nil
+      month="3"
+      result=Assignment::ParseHelper.calculate_year(day, month)
+    end
+
+    assert_raises ArgumentError do
+      day="155"
+      month="3"
+      result=Assignment::ParseHelper.calculate_year(day, month)
+    end
+
+    assert_raises NameError do
+      day="03"
+      month=Nil
+      result=Assignment::ParseHelper.calculate_year(day, month)
+    end
+
   end
 
 

@@ -3,7 +3,7 @@ require 'nokogiri'
 
 module Assignment
   class DataLoader
-    def self.get_data
+    def self.get_node_array
       path = File.expand_path(File.dirname(__FILE__) + '/../resources/imac.html')
       # create a Nokogiri document
       doc = Nokogiri::HTML(File.open(path)) do |config|

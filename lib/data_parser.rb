@@ -55,9 +55,9 @@ module Assignment
       parsed_data_array = []
       nodes.length.times do |i|
         node = nodes[i]
+        puts "Node = " + node.class.to_s
         the_date = node.at('th').inner_html.strip
-        parsed_time = extract_time(the_date)
-        puts "The date = " + the_date 
+        parsed_time = extract_time(the_date)       
         item_data = node.at('td.thumbs_subject').text.strip
         subject, price = get_subject_and_price(item_data)      
         item_array=[parsed_time, subject, price]
