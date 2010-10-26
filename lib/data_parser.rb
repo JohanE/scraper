@@ -16,8 +16,8 @@ module Assignment
       subject=Assignment::ParseHelper.convert_to_utf8(subject)
     
       # remove junk from the price
-      price.gsub! /:-/, ''
-      price.gsub! /\s+/, ''
+      price.gsub!(/:-/, '')
+      price.gsub!(/\s+/, '')
     
       # make price into an Integer, if it fails assign the value -1
       begin
@@ -30,7 +30,7 @@ module Assignment
        
     def extract_time(date_str)
         # clean the date first
-        date_str.gsub! /<br>/, ' '
+        date_str.gsub!(/<br>/, ' ')
 
       if ( date_str =~ /Idag/i )
         date = Assignment::ParseHelper.get_date_as_string(Time.now) 
