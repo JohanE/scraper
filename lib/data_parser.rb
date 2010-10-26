@@ -55,7 +55,6 @@ module Assignment
       parsed_data_array = []
       nodes.length.times do |i|
         node = nodes[i]
-        puts "Node = " + node.class.to_s
         the_date = node.at('th').inner_html.strip
         parsed_time = extract_time(the_date)       
         item_data = node.at('td.thumbs_subject').text.strip
@@ -68,6 +67,9 @@ module Assignment
 
     private
 
+    # extracts subject and price from a string, uses whitespaces as delimiter,
+    #  i.e if there are 3 or more whitespaces, then split the string using that
+    # otherwise we assume there is no price, just a subject
     def extract_subject_and_price_from_node(node_data)
       str_arr = node_data.split(/\s{3,}/) 
       if str_arr.length > 1

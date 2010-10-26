@@ -1,3 +1,7 @@
 SHRUG: snabbhack: Blocket.se-scraper
 
-Newbie solution from JohanE
+Newbie attempt at solution from JohanE (johan.a.edlund@gmail.com)
+
+run: ruby parse_html.rb
+
+You need the Nokogiri gem
