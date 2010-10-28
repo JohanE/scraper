@@ -45,9 +45,6 @@ module Assignment
     end      
   
     def self.calculate_year(day, month)
-      #puts "month = " + month
-      #raise ArgumentError.new('month is malformed') unless (month.to_i >= 1 && month.to_i <= 12)  
-      #raise ArgumentError.new('day is malformed') unless (month.to_i >= 1 && month.to_i <= 12)  
 
       if (is_date_from_last_year?(day, month))
         year=Assignment::ParseHelper.get_previous_year
